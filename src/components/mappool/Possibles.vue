@@ -78,7 +78,7 @@
 					<div>
 						<input v-model="searchQuery" @input="getSearchResults()"
 							class="bg-transparent border-b border-black dark:border-slate-600 outline-none text-center text-xl"
-							type="text" placeholder="Search a map">
+							type="text" placeholder="Search">
 					</div>
 
 				</div>

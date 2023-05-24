@@ -2,7 +2,7 @@
 	<div>
 
 		<div class="flex justify-center border-b border-black dark:border-slate-600 w-full py-4">
-			<input v-model="searchQuery" @input="getSearchResults()" type="text" placeholder="search a map"
+			<input v-model="searchQuery" @input="getSearchResults()" type="text" placeholder="Search"
 				class="w-[320px] text-slate-400 text-2xl text-center bg-transparent outline-none">
 		</div>
 		

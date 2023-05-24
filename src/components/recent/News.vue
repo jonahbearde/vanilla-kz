@@ -117,7 +117,7 @@ async function addComment(newId) {
 
 @media only screen and (max-width: 640px) {
 	.news {
-		max-height: 700px;
+		max-height: 500px;
 	}
 
 	.news-content:deep() iframe {

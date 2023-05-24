@@ -31,7 +31,7 @@
 				<p class="text-2xl py-4 font-medium">Impossible Maps</p>
 				<p class="italic text-gray-400">Maps thought to be impossible on VNL settings with or without TAS tools or cheats.
 				</p>
-				<input v-model="mapSearch" @input="getSearchResults" type="text" placeholder="search a map"
+				<input v-model="mapSearch" @input="getSearchResults" type="text" placeholder="Search"
 					class="w-[320px] text-slate-400 text-2xl text-center bg-transparent outline-none pt-2">
 
 				<div class="flex flex-wrap justify-center gap-6 py-6">
