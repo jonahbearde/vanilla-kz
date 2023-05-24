@@ -27,5 +27,7 @@ coverage
 *.sln
 *.sw?
 
+.env
+
 TODO.txt
 public/jsons
