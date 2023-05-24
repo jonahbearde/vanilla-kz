@@ -17,9 +17,9 @@
 			class="grid grid-cols-2 py-1 border-b border-slate-400 dark:border-slate-600">
 
 			<div class="group relative">
-				<p class="cursor-pointer">
+				<RouterLink :to="{name: 'map', params: {mapname: map.name}}" class="cursor-pointer">
 					{{ map.name }}
-				</p>
+				</RouterLink>
 				<img
 					class="h-[120px] w-auto z-[2] absolute top-4 left-20 invisible group-hover:visible border-2 border-black dark:border-slate-600 rounded-md cursor-pointer"
 					:src="'https://raw.githubusercontent.com/KZGlobalTeam/map-images/public/mediums/' + map.name + '.jpg'"
