@@ -15,7 +15,7 @@
 			</RouterLink>
 			<p class="">{{ item.count }}</p>
 			<div v-if="!props.bonus"
-				class="hidden group-hover:block z-[2] absolute left-10 top-8 p-2 max-h-[500px] overflow-auto bg-slate-50 dark:bg-gray-700 border border-slate-400 rounded-md">
+				class="hidden group-hover:sm:block z-[2] absolute left-10 top-8 p-2 max-h-[500px] w-[350px] overflow-auto bg-slate-50 dark:bg-gray-700 border border-slate-400 rounded-md">
 				<WrList :wr-list="item.wrs" />
 			</div>
 		</div>
