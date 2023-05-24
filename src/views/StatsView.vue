@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="overflow-auto">
 
 		<div v-if="loading">
 			<LoadingBar />
