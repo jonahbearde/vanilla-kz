@@ -65,7 +65,6 @@ const newsStore = useNewsStore()
 
 const { newsList, tags } = storeToRefs(newsStore)
 
-// const collapseMap = computed(() => new Map(newsList.value.map(news => ([news.id, false]))))
 
 const { fetchNews } = newsStore
 
@@ -108,18 +107,6 @@ async function addComment(newId) {
 	}
 }
 
-
-// function toggleCollapse(id) {
-// 	if (id === selectedNewsId.value) {
-// 		let collapsed = collapseMap.value.get(id);
-// 		collapseMap.value.set(id, !collapsed);
-// 	} else {
-// 		collapseMap.value.set(selectedNewsId.value, false);
-// 		collapseMap.value.set(id, true);
-// 		selectedNewsId.value = id;
-// 	}
-// }
-
 </script>
 
 <style scoped>
@@ -130,7 +117,7 @@ async function addComment(newId) {
 
 @media only screen and (max-width: 640px) {
 	.news {
-		max-height: 800px;
+		max-height: 700px;
 	}
 
 	.news-content:deep() iframe {

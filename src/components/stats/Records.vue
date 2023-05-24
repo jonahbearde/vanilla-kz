@@ -7,7 +7,7 @@
 		</div>
 		
 		<!-- TP and Pro -->
-		<div class="flex flex-col sm:flex-row overflow-auto">
+		<div class="flex flex-col sm:flex-row overflow-x-auto">
 			<div class="flex flex-col flex-1 border-b sm:border-r border-black dark:border-slate-600">
 
 				<div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6 mt-4">
