@@ -1,6 +1,5 @@
 <template>
 	<div>
-		<NavBar />
 		<div class="w-[300px] sm:w-[700px] flex flex-col gap-4 mx-auto mt-20 border-2 border-slate-300 rounded-lg shadow-lg p-4 sm:p-8">
 			<p class="text-xl">Hey, this is Reeed, the developer of vnl.kz. I hope you're enjoying exploring the website so far!</p>
 			<p class="text-xl">If you have any suggestions or encounter any issues, please feel free to contact me, you can:</p>

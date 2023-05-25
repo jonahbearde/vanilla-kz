@@ -1,5 +1,5 @@
 <template>
-	<div class="w-[300px] sm:w-[500px]">
+	<div class="w-[500px]">
 		<div class="grid grid-cols-7 border-b-2 border-slate-400">
 			<p>#</p>
 			<p class="col-span-3">Player</p>

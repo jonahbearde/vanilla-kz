@@ -7,6 +7,7 @@ const tierColors = [
 	'#fe2f01',
 	'#ff0000',
 	'#ff00ff',
+	'#636e72'
 ]
 
 const tierPhrases = [

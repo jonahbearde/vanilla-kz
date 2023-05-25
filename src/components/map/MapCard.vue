@@ -28,14 +28,26 @@
 					<p
 						class="flex items-center border border-slate-400 dark:border-slate-600 bg-yellow-400 dark:bg-yellow-600 px-2 rounded-md">
 						TP</p>
-					<p :style="{ color: tierColors[map.tpTier - 1] }" class="text-2xl">{{ tierPhrases[map.tpTier - 1] }}</p>
+					<div class="flex items-center">
+						<span :style="{ color: tierColors[map.tpTier - 1] }" class="text-2xl">{{ tierPhrases[map.tpTier - 1] }}</span>
+						<span>/</span>
+						<span :style="{ color: tierColors[map.tpTier - 1] }" class="text-2xl">{{ map.tpTier }}</span>
+					</div>
 				</div>
 
 				<div class="flex gap-2">
 					<p
 						class="flex items-center border border-slate-400 dark:border-slate-600 bg-blue-400 dark:bg-blue-600 px-1 rounded-md">
 						PRO</p>
-					<p :style="{ color: tierColors[map.proTier - 1] }" class="text-2xl">{{ tierPhrases[map.proTier - 1] }}</p>
+					<div class="flex items-center">
+						<span :style="{ color: tierColors[map.proTier - 1] }" class="text-2xl">
+							{{ map.proTier > 8 ? 'Unfeasible' : tierPhrases[map.proTier - 1] }}
+						</span>
+						<span v-if="map.proTier < 9">/</span>
+						<span v-if="map.proTier < 9" :style="{ color: tierColors[map.tpTier - 1] }" class="text-2xl">
+							{{ map.tpTier }}
+						</span>
+					</div>
 				</div>
 			</div>
 
@@ -64,7 +76,7 @@
 			<p class="text-xl font-medium">Possible Bonuses</p>
 			<div class="flex flex-wrap justify-center gap-2 max-w-[400px]">
 				<p @click="selectedBonus = bonus" v-for="bonus in bonuses" :key="bonus.id"
-					class="text-base border border-slate-400 dark:border-slate-600 rounded-md bg-gray-700 cursor-pointer italic">
+					class="text-base px-1 border border-slate-400 dark:border-slate-600 rounded-md bg-gray-700 cursor-pointer italic">
 					{{ bonus.bonus_number }}
 				</p>
 			</div>

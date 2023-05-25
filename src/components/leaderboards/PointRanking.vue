@@ -3,14 +3,14 @@
 		<div v-if="loading">
 			<LoadingBar />
 		</div>
-		<div v-else class="flex flex-col sm:flex-row justify-evenly mt-4 mb-32">
+		<div v-else class="flex flex-col sm:flex-row justify-evenly px-2 mt-4 mb-32 overflow-x-auto">
 			<!-- TP rankings -->
-			<div class="flex flex-col items-center">
-				<p class="text-3xl font-semibold text-yellow-600 mb-2">TP</p>
+			<div>
+				<p class="text-3xl font-semibold text-yellow-600 w-max mx-auto mb-2">TP</p>
 				<PointsTable :rankings="tpRankings" />
 			</div>
-			<div class="flex flex-col items-center">
-				<p class="text-3xl font-semibold text-blue-600 mb-2">PRO</p>
+			<div>
+				<p class="text-3xl font-semibold text-blue-600 w-max mx-auto mb-2">PRO</p>
 				<PointsTable :rankings="proRankings" />
 			</div>
 		</div>
@@ -22,7 +22,7 @@ import { ref, onMounted } from 'vue'
 import axios from 'axios';
 import LoadingBar from '../LoadingBar.vue';
 import PointsTable from './PointsTable.vue'
-import {globalApiBaseUrl} from '../../constants'
+import { globalApiBaseUrl } from '../../constants'
 
 const loading = ref(true)
 
@@ -33,11 +33,13 @@ onMounted(async () => {
 	loading.value = true
 
 	try {
-		const tpResult = await axios.get(`${globalApiBaseUrl}/player_ranks?mode_ids=202&has_teleports=true&limit=40`)
+
+
+		const tpResult = await axios.get(`${globalApiBaseUrl}/player_ranks?stages=0&mode_ids=202&has_teleports=true&limit=40`)
 
 		tpRankings.value = tpResult.data
 
-		const proResult = await axios.get(`${globalApiBaseUrl}/player_ranks?mode_ids=202&has_teleports=false&limit=40`)
+		const proResult = await axios.get(`${globalApiBaseUrl}/player_ranks?stages=0&mode_ids=202&has_teleports=false&limit=40`)
 
 		proRankings.value = proResult.data
 
