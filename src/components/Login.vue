@@ -49,16 +49,19 @@ async function signin() {
 	}
 
 	try {
-		await login(username.value, password.value)
+		const error = await login(username.value, password.value)
 
+		if (error) {
+			loginError.value = error.response.data.message
+			return 
+		}
 		if (user.value.role === 'Admin' || user.value.role === 'Elon') {
-			router.push('admin');
+			router.push('admin')
 		} else {
-			router.push('stats');
+			router.push('stats')
 		}
 	} catch (error) {
 		console.log(error);
-		loginError.value = error.response.data.message;
 	}
 }
 </script>

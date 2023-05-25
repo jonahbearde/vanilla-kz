@@ -35,8 +35,9 @@
 </template>
 
 <script setup>
-import { ref, computed, inject } from 'vue'
+import { ref, computed } from 'vue'
 import localDate from '../../date'
+import formatTime from '../../time';
 import { tierColors } from '../../constants';
 
 const props = defineProps({
@@ -54,8 +55,6 @@ const props = defineProps({
 	}
 })
 
-
-const formatTime = inject('formatTime')
 
 const sortColumn = ref(null)
 

@@ -10,7 +10,8 @@
 			<RouterLink to="/recent" @click="closeMenu" class="nav-item dark:border-slate-600">Recent</RouterLink>
 			<RouterLink to="/stats" @click="closeMenu" class="nav-item dark:border-slate-600">Stats</RouterLink>
 			<RouterLink to="/maps" @click="closeMenu" class="nav-item dark:border-slate-600">Maps</RouterLink>
-			<RouterLink to="/leaderboards" @click="closeMenu" class="nav-item dark:border-slate-600">Leaderboards</RouterLink>
+			<RouterLink to="/leaderboards" @click="closeMenu" class="nav-item dark:border-slate-600">Leaderboards
+			</RouterLink>
 			<RouterLink to="/resources" @click="closeMenu" class="nav-item dark:border-slate-600">Resources</RouterLink>
 			<div class="cursor-pointer">
 				<a href="https://docs.vnl.kz" target="_blank">Guides</a>
@@ -19,7 +20,7 @@
 		</div>
 
 		<div v-if="user" class="flex flex-1 justify-end items-center gap-4 text-xl mr-4">
-			<div :style="avatarStyle" class="w-[30px] ">{{ user.name.charAt(0).toUpperCase() }}</div>
+			<p>{{ user.name }}</p>
 			<i @click="signout" class="fa-solid fa-arrow-right-from-bracket cursor-pointer"></i>
 		</div>
 
@@ -49,7 +50,6 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useDark, useToggle } from '@vueuse/core'
 import useUserStore from '../store/user'
@@ -66,8 +66,6 @@ const toggleDark = useToggle(isDark)
 
 const router = useRouter()
 
-const avatarStyle = ref(null)
-
 
 const toggleMenu = () => {
 	const navMenu = document.querySelector('.nav-menu')
@@ -79,24 +77,6 @@ const closeMenu = () => {
 	navMenu.classList.remove('active')
 }
 
-const colors = ["#1abc9c", "#2ecc71", "#3498db", "#9b59b6", "#34495e", "#16a085", "#27ae60", "#2980b9", "#8e44ad", "#2c3e50", "#f1c40f", "#e67e22", "#e74c3c", "#95a5a6", "#f39c12", "#d35400", "#c0392b", "#bdc3c7", "#7f8c8d"];
-
-if (user.value) {
-	let initial = user.value.name.charAt(0).toUpperCase();
-	let charIndex = initial.charCodeAt(0) - 65;
-	let colorIndex = charIndex % 19;
-
-	avatarStyle.value = {
-		'background-color': colors[colorIndex],
-		'width': 30 + 'px',
-		'height': 30 + 'px',
-		'font': 15 + "px Arial",
-		'color': '#FFF',
-		'textAlign': 'center',
-		'lineHeight': 30 + 'px',
-		'borderRadius': '50%'
-	}
-}
 
 const signup = () => {
 	router.push('/signup');

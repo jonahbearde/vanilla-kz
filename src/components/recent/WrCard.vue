@@ -21,12 +21,13 @@
 </template>
 
 <script setup>
-import { inject, computed } from 'vue'
+import {  computed } from 'vue'
 import { toRefs } from '@vueuse/core';
 import { storeToRefs } from 'pinia';
-import { imageApiPrefix, tierColors } from '../../constants'
-import useMapStore from '../../store/maps';
 import { formatDistanceStrict } from 'date-fns'
+import { imageApiPrefix, tierColors } from '../../constants'
+import formatTime from '../../time'
+import useMapStore from '../../store/maps';
 
 
 const mapStore = useMapStore()
@@ -56,7 +57,6 @@ const mapColor = computed(() => {
 
 const { wr } = toRefs(props)
 
-const formatTime = inject('formatTime')
 
 function humanTime(updated_on){
 	let distance = formatDistanceStrict(Date.now(), new Date(updated_on))
