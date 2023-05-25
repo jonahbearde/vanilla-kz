@@ -1,5 +1,5 @@
 <template>
-	<div class="flex flex-col bg-stats-primary min-h-screen font-Lora dark:text-slate-300 dark:bg-gray-900">
+	<div class="flex flex-col bg-stats-primary min-h-screen font-Mulish dark:text-slate-300 dark:bg-gray-900">
 		<NavBar />
 		<Suspense>
 			<RouterView />

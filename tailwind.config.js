@@ -18,7 +18,9 @@ module.exports = {
 				Lora: ['Lora', 'serif'],
 				Rubik: ['Rubik', 'sans-serif'],
 				Oswald: ['Oswald', 'sans-serif'],
-				Kanit: ['Kanit', 'sans-serif']
+				Kanit: ['Kanit', 'sans-serif'],
+				Raleway: ['Raleway', 'sans-serif'],
+				Mulish: ['Mulish', 'sans-serif']
 			},
 			container: {
 				padding: '2rem',
