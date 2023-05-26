@@ -14,11 +14,6 @@ module.exports = {
 				'stats-secondary': '#F8EFBA',
 			},
 			fontFamily: {
-				Shantell: ['Shantell Sans', 'cursive', 'sans-serif'],
-				Lora: ['Lora', 'serif'],
-				Rubik: ['Rubik', 'sans-serif'],
-				Oswald: ['Oswald', 'sans-serif'],
-				Kanit: ['Kanit', 'sans-serif'],
 				Raleway: ['Raleway', 'sans-serif'],
 				Mulish: ['Mulish', 'sans-serif']
 			},

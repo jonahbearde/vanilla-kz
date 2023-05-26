@@ -6,7 +6,7 @@
 				loading="lazy" onerror="this.onerror = null; this.src = '/loading.jpg'"
 				class="h-[148px] w-[256px] fade-in cursor-pointer border-y border-black dark:border-slate-600">
 			<p :style="{ color: tierColors[map.tpTier - 1] }"
-				class="absolute bottom-[115px] left-[228px] text-lg font-semibold leading-6 px-1 bg-slate-300 dark:bg-gray-800 border border-slate-600 rounded-sm">
+				class="absolute top-2 right-2 text-lg font-semibold leading-6 px-1 bg-slate-300 dark:bg-gray-800 border border-slate-600 rounded-sm">
 				{{ map.tpTier }}</p>
 		</div>
 

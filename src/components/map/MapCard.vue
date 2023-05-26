@@ -4,7 +4,7 @@
 		<!-- map box -->
 		<div class="flex flex-col items-center pb-2 px-4 border-b border-black dark:border-slate-600">
 
-			<img class="h-[220px] w-auto border border-slate-400 rounded-sm mt-4"
+			<img class="h-[220px] w-[390px] border border-slate-400 rounded-sm mt-4"
 				:src="'https://raw.githubusercontent.com/KZGlobalTeam/map-images/public/mediums/' + map.name + '.jpg'"
 				onerror="this.onerror = null; this.src = '/loading.jpg'">
 
@@ -30,7 +30,7 @@
 						TP</p>
 					<div class="flex items-center">
 						<span :style="{ color: tierColors[map.tpTier - 1] }" class="text-2xl">{{ tierPhrases[map.tpTier - 1] }}</span>
-						<span>/</span>
+						<span>-</span>
 						<span :style="{ color: tierColors[map.tpTier - 1] }" class="text-2xl">{{ map.tpTier }}</span>
 					</div>
 				</div>
@@ -43,9 +43,9 @@
 						<span :style="{ color: tierColors[map.proTier - 1] }" class="text-2xl">
 							{{ map.proTier > 8 ? 'Unfeasible' : tierPhrases[map.proTier - 1] }}
 						</span>
-						<span v-if="map.proTier < 9">/</span>
-						<span v-if="map.proTier < 9" :style="{ color: tierColors[map.tpTier - 1] }" class="text-2xl">
-							{{ map.tpTier }}
+						<span v-if="map.proTier < 9">-</span>
+						<span v-if="map.proTier < 9" :style="{ color: tierColors[map.proTier - 1] }" class="text-2xl">
+							{{ map.proTier }}
 						</span>
 					</div>
 				</div>
@@ -73,10 +73,15 @@
 		</div>
 		<!-- bonus -->
 		<div class="flex flex-col border-b items-center border-black dark:border-slate-600 py-2">
-			<p class="text-xl font-medium">Possible Bonuses</p>
-			<div class="flex flex-wrap justify-center gap-2 max-w-[400px]">
-				<p @click="selectedBonus = bonus" v-for="bonus in bonuses" :key="bonus.id"
+			<p class="text-xl font-medium mb-1">Possible Courses</p>
+			<div class="flex flex-wrap justify-center gap-2 max-w-[400px] mb-1">
+				<p @click="toggleStage(0); selectedBonus = null" :class="selectedStage === 0 ? 'text-green-600' : ''"
 					class="text-base px-1 border border-slate-400 dark:border-slate-600 rounded-md bg-gray-700 cursor-pointer italic">
+					Main
+				</p>
+				<p @click="toggleStage(bonus.bonus_number); selectedBonus = bonus" v-for="bonus in bonuses" :key="bonus.id"
+					:class="selectedStage === bonus.bonus_number ? 'text-green-600' : ''"
+					class="text-base w-[25px] text-center border border-slate-400 dark:border-slate-600 rounded-md bg-gray-700 cursor-pointer italic">
 					{{ bonus.bonus_number }}
 				</p>
 			</div>
@@ -94,11 +99,11 @@ import formatTime from '../../time';
 const props = defineProps({
 	map: {
 		type: Object,
-		required: true
+		default: null
 	},
 	pbTp: {
 		type: Number,
-		required: true
+		default: null
 	},
 	pbPro: {
 		type: Number,
@@ -110,9 +115,17 @@ const props = defineProps({
 	}
 })
 
+const emits = defineEmits(['toggleStage'])
+
 const { map, pbTp, pbPro, bonuses } = toRefs(props)
 
+const selectedStage = ref(0)
 const selectedBonus = ref(null)
+
+function toggleStage(stage) {
+	selectedStage.value = stage
+	emits('toggleStage', stage)
+}
 
 
 </script>
