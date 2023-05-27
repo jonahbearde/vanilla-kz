@@ -27,27 +27,19 @@
 				<div class="flex gap-2">
 					<p
 						class="flex items-center border border-slate-400 dark:border-slate-600 bg-yellow-400 dark:bg-yellow-600 px-2 rounded-md">
-						TP</p>
-					<div class="flex items-center">
-						<span :style="{ color: tierColors[map.tpTier - 1] }" class="text-2xl">{{ tierPhrases[map.tpTier - 1] }}</span>
-						<span>-</span>
-						<span :style="{ color: tierColors[map.tpTier - 1] }" class="text-2xl">{{ map.tpTier }}</span>
-					</div>
+						{{ map.tpTier }}
+					</p>
+					<p :style="{ color: tierColors[map.tpTier - 1] }" class="text-2xl">{{ tierPhrases[map.tpTier - 1] }}</p>
 				</div>
 
 				<div class="flex gap-2">
 					<p
-						class="flex items-center border border-slate-400 dark:border-slate-600 bg-blue-400 dark:bg-blue-600 px-1 rounded-md">
-						PRO</p>
-					<div class="flex items-center">
-						<span :style="{ color: tierColors[map.proTier - 1] }" class="text-2xl">
-							{{ map.proTier > 8 ? 'Unfeasible' : tierPhrases[map.proTier - 1] }}
-						</span>
-						<span v-if="map.proTier < 9">-</span>
-						<span v-if="map.proTier < 9" :style="{ color: tierColors[map.proTier - 1] }" class="text-2xl">
-							{{ map.proTier }}
-						</span>
-					</div>
+						class="flex items-center border border-slate-400 dark:border-slate-600 bg-blue-400 dark:bg-blue-600 px-2 rounded-md">
+						{{ map.proTier }}
+					</p>
+					<p :style="{ color: tierColors[map.proTier - 1] }" class="text-2xl">
+						{{ map.proTier > 8 ? 'Unfeasible' : tierPhrases[map.proTier - 1] }}
+					</p>
 				</div>
 			</div>
 
