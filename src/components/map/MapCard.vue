@@ -23,7 +23,7 @@
 
 			</div>
 
-			<div class="grid grid-cols-2 mt-1">
+			<div class="flex gap-6 mt-1">
 				<div class="flex gap-2">
 					<p
 						class="flex items-center border border-slate-400 dark:border-slate-600 bg-yellow-400 dark:bg-yellow-600 px-2 rounded-md">
