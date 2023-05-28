@@ -10,7 +10,8 @@
 			</RouterLink>
 			<p :style="{ color: mapColor }"
 				class="absolute top-1 right-1 text-lg font-semibold leading-6 px-1 bg-slate-300 dark:bg-gray-800 border border-slate-600 rounded-sm">
-				{{ tpTierMap.get(wr.map_id) }}</p>
+				{{ wr.teleports > 0 ? tpTierMap.get(wr.map_id) : proTierMap.get(wr.map_id) }}
+			</p>
 		</div>
 
 		<div class="flex flex-col items-center w-full">

@@ -23,7 +23,7 @@
 
 			</div>
 
-			<div class="flex gap-6 mt-1">
+			<div class="grid grid-cols-2 mt-1">
 				<div class="flex gap-2">
 					<p
 						class="flex items-center border border-slate-400 dark:border-slate-600 bg-yellow-400 dark:bg-yellow-600 px-2 rounded-md">
@@ -45,13 +45,16 @@
 
 		</div>
 
-		<div class="flex justify-center items-center border-b border-black dark:border-slate-600 py-2 text-xl">
+		<div class="flex flex-col items-center justify-center border-b border-black dark:border-slate-600 py-2 text-xl">
 			<p
-				class="self-start border border-slate-400 dark:border-slate-600 dark:bg-gray-700 bg-gray-300 px-1 rounded-md mr-4">
+				class="border border-slate-400 dark:border-slate-600 dark:bg-gray-700 bg-gray-300 px-2 mb-1 rounded-md">
 				PB</p>
-			<p :class="pbTp ? 'text-yellow-600' : ''">{{ pbTp ? formatTime(pbTp) : 'none' }}</p>
-			<p class="px-2 text-gray-400">/</p>
-			<p :class="pbPro ? 'text-blue-600' : ''">{{ pbPro ? formatTime(pbPro) : 'none' }}</p>
+			<div class="grid grid-cols-[1fr_20px_1fr] gap-4">
+				<p :class="pbTp ? 'text-yellow-600' : ''">{{ pbTp ? formatTime(pbTp) : 'none' }}</p>
+				<p class="px-2 text-gray-400">/</p>
+				<p :class="pbPro ? 'text-blue-600' : ''">{{ pbPro ? formatTime(pbPro) : 'none' }}</p>
+			</div>
+
 		</div>
 		<!-- notes -->
 		<div class="flex flex-col items-center pt-3 pb-5 border-b border-black dark:border-slate-600">
