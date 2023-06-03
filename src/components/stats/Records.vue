@@ -5,16 +5,16 @@
 			<input v-model="searchQuery" @input="getSearchResults()" type="text" placeholder="Search"
 				class="w-[320px] text-slate-400 text-2xl text-center bg-transparent outline-none">
 		</div>
-		
+
 		<!-- TP and Pro -->
 		<div class="flex flex-col sm:flex-row">
 			<div class="flex flex-col flex-1 border-b sm:border-r border-black dark:border-slate-600">
 
-				<div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6 mt-4">
-					<p @click="toggleUnfinished(true)" class="text-yellow-600 font-bold text-3xl cursor-pointer">TP</p>
-					<p @click="toggleUnfinished(true)"
-						class="text-gray-400 text-sm border border-slate-400 rounded-md px-1 bg-gray-200 dark:bg-gray-600 cursor-pointer">
-						Unfinished
+				<div class="flex flex-col items-center gap-2  mt-4">
+					<p class="text-yellow-600 font-bold text-3xl">TP</p>
+					<p @click="toggleFinished(true)" :class="showTpRuns ? 'text-gray-400' : 'text-green-400'"
+						class="text-sm border border-slate-400 rounded-md px-1 bg-gray-200 dark:bg-gray-600 cursor-pointer">
+						{{ showTpRuns ? 'Unfinished' : 'Finished' }}
 					</p>
 				</div>
 
@@ -36,11 +36,11 @@
 
 			<div class="flex flex-col flex-1 border-b sm:border-r border-black dark:border-slate-600">
 
-				<div class="flex items-center justify-center gap-6 mt-4">
-					<p @click="toggleUnfinished(false)" class="text-blue-600 font-bold text-3xl cursor-pointer">PRO</p>
-					<p @click="toggleUnfinished(false)"
-						class="text-gray-400 text-sm border border-slate-400 rounded-md px-1 bg-gray-200 dark:bg-gray-600 cursor-pointer">
-						Unfinished
+				<div class="flex flex-col  items-center gap-2  mt-4">
+					<p class="text-blue-600 font-bold text-3xl">PRO</p>
+					<p @click="toggleFinished(false)" :class="showProRuns ? 'text-gray-400' : 'text-green-400'"
+						class="text-sm border border-slate-400 rounded-md px-1 bg-gray-200 dark:bg-gray-600 cursor-pointer">
+						{{ showProRuns ? 'Unfinished' : 'Finished' }}
 					</p>
 				</div>
 
@@ -91,7 +91,7 @@ const showProRuns = ref(true)
 const queryTimeout = ref(null)
 
 
-function toggleUnfinished(has_teleports) {
+function toggleFinished(has_teleports) {
 	if (has_teleports) showTpRuns.value = !showTpRuns.value
 	else showProRuns.value = !showProRuns.value
 }

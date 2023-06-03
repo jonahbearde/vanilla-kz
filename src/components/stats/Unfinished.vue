@@ -1,5 +1,5 @@
 <template>
-	<div class="w-[500px] sm:overflow-hidden">
+	<div class="w-[500px] sm:overflow-hidden sm:pb-28">
 		<!-- TODO: sort -->
 		<div class="grid grid-cols-2 text-xl border-b border-black dark:border-slate-600">
 
@@ -17,7 +17,7 @@
 			class="grid grid-cols-2 py-1 border-b border-slate-400 dark:border-slate-600">
 
 			<div class="group relative">
-				<RouterLink :to="{name: 'map', params: {mapname: map.name}}" class="cursor-pointer">
+				<RouterLink :to="{name: 'map', params: {mapname: map.name}}" target="_blank" class="cursor-pointer">
 					{{ map.name }}
 				</RouterLink>
 				<img
