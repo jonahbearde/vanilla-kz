@@ -6,7 +6,7 @@ import MapPoolView from '../views/MapPoolView.vue'
 import Possibles from '../components/mappool/Possibles.vue'
 import Unfeasibles from '../components/mappool/Unfeasibles.vue'
 import RecentView from '../views/RecentView.vue'
-import LeaderBoardsView from '../views/LeaderBoardsView.vue'
+import LeaderboardsView from '../views/LeaderboardsView.vue'
 import ResourcesView from '../views/ResourcesView.vue'
 import About from '../views/About.vue'
 import Login from '../components/Login.vue'
@@ -77,7 +77,7 @@ const router = createRouter({
 		{
 			path: '/leaderboards',
 			name: 'leaderboards',
-			component: LeaderBoardsView
+			component: LeaderboardsView
 		},
 		{
 			path: '/about',
