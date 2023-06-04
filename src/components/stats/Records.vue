@@ -16,7 +16,7 @@
 					<div class="flex gap-2 p-1 border border-slate-500 rounded-md bg-gray-200 dark:bg-gray-700 text-sm">
 						<button @click="toggleFinished(true)" :class="showTpRuns ? 'bg-gray-300 dark:bg-gray-500 border border-slate-400 rounded-sm' : ''"
 							class="px-1">
-							Times
+							Finished
 						</button>
 						<button @click="toggleFinished(true)" :class="!showTpRuns ? 'bg-gray-300 dark:bg-gray-500 border border-slate-400 rounded-sm' : ''"
 							class="px-1">
@@ -50,7 +50,7 @@
 					<div class="flex gap-2 p-1 border border-slate-500 rounded-md bg-gray-200 dark:bg-gray-700 text-sm">
 						<button @click="toggleFinished(false)" :class="showProRuns ? 'bg-gray-300 dark:bg-gray-500 border border-slate-400 rounded-sm' : ''"
 							class="px-1">
-							Times
+							Finished
 						</button>
 						<button @click="toggleFinished(false)" :class="!showProRuns ? 'bg-gray-300 dark:bg-gray-500 border border-slate-400 rounded-sm' : ''"
 							class="px-1">
