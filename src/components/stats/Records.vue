@@ -10,12 +10,20 @@
 		<div class="flex flex-col sm:flex-row">
 			<div class="flex flex-col flex-1 border-b sm:border-r border-black dark:border-slate-600">
 
-				<div class="flex flex-col items-center gap-2  mt-4">
+				<div class="flex flex-col items-center gap-2 mt-4">
 					<p class="text-yellow-600 font-bold text-3xl">TP</p>
-					<p @click="toggleFinished(true)" :class="showTpRuns ? 'text-gray-400' : 'text-green-400'"
-						class="text-sm border border-slate-400 rounded-md px-1 bg-gray-200 dark:bg-gray-600 cursor-pointer">
-						{{ showTpRuns ? 'Unfinished' : 'Finished' }}
-					</p>
+
+					<div class="flex gap-2 p-1 border border-slate-500 rounded-md bg-gray-200 dark:bg-gray-700 text-sm">
+						<button @click="toggleFinished(true)" :class="showTpRuns ? 'bg-gray-300 dark:bg-gray-500 border border-slate-400 rounded-sm' : ''"
+							class="px-1">
+							Times
+						</button>
+						<button @click="toggleFinished(true)" :class="!showTpRuns ? 'bg-gray-300 dark:bg-gray-500 border border-slate-400 rounded-sm' : ''"
+							class="px-1">
+							Unfinished
+						</button>
+					</div>
+
 				</div>
 
 				<!-- Recents -->
@@ -38,10 +46,18 @@
 
 				<div class="flex flex-col  items-center gap-2  mt-4">
 					<p class="text-blue-600 font-bold text-3xl">PRO</p>
-					<p @click="toggleFinished(false)" :class="showProRuns ? 'text-gray-400' : 'text-green-400'"
-						class="text-sm border border-slate-400 rounded-md px-1 bg-gray-200 dark:bg-gray-600 cursor-pointer">
-						{{ showProRuns ? 'Unfinished' : 'Finished' }}
-					</p>
+
+					<div class="flex gap-2 p-1 border border-slate-500 rounded-md bg-gray-200 dark:bg-gray-700 text-sm">
+						<button @click="toggleFinished(false)" :class="showProRuns ? 'bg-gray-300 dark:bg-gray-500 border border-slate-400 rounded-sm' : ''"
+							class="px-1">
+							Times
+						</button>
+						<button @click="toggleFinished(false)" :class="!showProRuns ? 'bg-gray-300 dark:bg-gray-500 border border-slate-400 rounded-sm' : ''"
+							class="px-1">
+							Unfinished
+						</button>
+					</div>
+
 				</div>
 
 				<!-- Recents -->
