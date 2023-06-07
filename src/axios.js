@@ -1,11 +1,9 @@
 import axios from 'axios'
+import { vnlApiBaseUrl } from './constants'
 
-const API_BASE_URL = 'https://vnl-stats-backend.onrender.com/api/v1'
-// const API_BASE_URL = 'http://111.230.209.217:1337/api/v1'
-// const API_BASE_URL = ' http://localhost:1337/api/v1'
 
 const axiosClient = axios.create({
-	baseURL: API_BASE_URL
+	baseURL: vnlApiBaseUrl
 })
 
 axiosClient.interceptors.request.use(config => {

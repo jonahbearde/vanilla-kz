@@ -40,23 +40,24 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { storeToRefs } from "pinia";
 import WrCard from "../components/recent/WrCard.vue";
 import News from "../components/recent/News.vue";
-import useRecentStore from '../store/recent'
-import useMapStore from '../store/maps';
 import LoadingBar from '../components/LoadingBar.vue';
+import useMapStore from '../store/maps';
+import axiosClient from '../axios';
+import { globalApiBaseUrl } from '../constants';
 
-const recentStore = useRecentStore()
 const mapStore = useMapStore()
-
-const { tpWrs, proWrs, top50 } = storeToRefs(recentStore)
-
-const { fetchTop } = recentStore
 
 const { fetchMaps } = mapStore
 
 const loading = ref(true)
+
+const tpWrs = ref(null)
+
+const proWrs = ref(null)
+
+const top50 =ref(null)
 
 onMounted(async () => {
 	loading.value = true
@@ -69,6 +70,24 @@ onMounted(async () => {
 		loading.value = false
 	}
 })
+
+async function fetchTop() {
+
+	try {
+		let top = await Promise.all([
+			axiosClient.get(`${globalApiBaseUrl}/records/top/recent?modes_list_string=kz_vanilla&tickrate=128&stage=0&has_teleports=true&place_top_at_least=1&limit=30`),
+			axiosClient.get(`${globalApiBaseUrl}/records/top/recent?modes_list_string=kz_vanilla&tickrate=128&stage=0&has_teleports=false&place_top_at_least=1&limit=30`),
+			axiosClient.get(`${globalApiBaseUrl}/records/top/recent?modes_list_string=kz_vanilla&tickrate=128&stage=0&place_top_at_least=50&limit=30`)
+		])
+
+		tpWrs.value = top[0].data
+		proWrs.value = top[1].data
+		top50.value = top[2].data
+
+	} catch (error) {
+		return error
+	}
+}
 
 
 </script>
