@@ -72,7 +72,7 @@ const { wr } = toRefs(props)
 
 function humanTime(created_on) {
 
-	let distance = formatDistanceStrict(new Date(), new Date(created_on + 'Z'))
+	let distance = formatDistanceStrict(new Date().getTime(), new Date(created_on + 'Z'))
 
 	return distance + ' ago'
 }
