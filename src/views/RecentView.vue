@@ -21,7 +21,7 @@
 
 				<!-- tp wrs -->
 				<div class="flex w-max flex-col">
-					<p class="self-center text-3xl font-medium text-yellow-600">NUB WRs</p>
+					<p class="self-center text-3xl font-medium text-yellow-600">TP WRs</p>
 					<WrCard v-for="wr in tpWrs" :key="wr.id" :has_teleports="wr.teleports > 0" :wr="wr" />
 				</div>
 
