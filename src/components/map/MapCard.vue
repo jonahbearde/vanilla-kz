@@ -71,7 +71,7 @@
 			<p class="text-xl font-medium mb-1">Possible Courses</p>
 			<div class="flex flex-wrap justify-center gap-2 max-w-[400px] mb-1">
 				<p @click="toggleStage(0); selectedBonus = null" :class="selectedStage === 0 ? 'text-green-600' : ''"
-					class="text-base px-1 border border-slate-400 dark:border-slate-600 rounded-md bg-gray-700 cursor-pointer italic">
+					class="text-base px-1 border border-slate-400 dark:border-slate-600 rounded-md bg-gray-200 dark:bg-gray-700 cursor-pointer italic">
 					Main
 				</p>
 				<p @click="toggleStage(bonus.bonus_number); selectedBonus = bonus" v-for="bonus in bonuses" :key="bonus.id"

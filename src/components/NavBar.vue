@@ -3,7 +3,9 @@
 		class="nav-bar sticky w-full top-0 flex flex-row items-center py-1 border-b border-black dark:border-slate-600 bg-yellow-50 dark:bg-slate-900 z-20">
 		<div class="logo flex items-center gap-1 text-xl ml-4 mr-4 sm:mr-10">
 			<!-- <i class="fa-solid fa-person-running"></i> -->
-			<img src="/logo-vnl.png" class="w-[30px] h-auto" alt="logo-vnl" />
+			<RouterLink to="/recent">
+				<img src="/logo-vnl.png" class="w-[30px] h-auto" alt="logo-vnl" />
+			</RouterLink>
 			<p class="text-blue-600 vnl-text">Vanilla KZ</p>
 		</div>
 		<div class="nav-menu flex flex-col sm:flex-row items-center sm:gap-10 dark:bg-slate-900 text-xl font-medium">
@@ -20,7 +22,7 @@
 		</div>
 
 		<div v-if="user" class="flex flex-1 justify-end items-center gap-4 text-xl mr-4">
-			<p>{{ user.name }}</p>
+			<RouterLink to="/stats" class="cursor-pointer">{{ user.name }}</RouterLink>
 			<i @click="signout" class="fa-solid fa-arrow-right-from-bracket cursor-pointer"></i>
 		</div>
 
@@ -34,6 +36,7 @@
 				Log In
 			</button>
 		</div>
+
 
 		<div @click="toggleDark()" class="text-xl cursor-pointer mr-4">
 			<i v-if="isDark" class="fa-solid fa-sun"></i>
@@ -67,26 +70,26 @@ const toggleDark = useToggle(isDark)
 const router = useRouter()
 
 
-const toggleMenu = () => {
+function toggleMenu() {
 	const navMenu = document.querySelector('.nav-menu')
 	navMenu.classList.toggle('active')
 }
 
-const closeMenu = () => {
+function closeMenu() {
 	const navMenu = document.querySelector('.nav-menu')
 	navMenu.classList.remove('active')
 }
 
 
-const signup = () => {
+function signup() {
 	router.push('/signup');
 }
 
-const login = () => {
+function login() {
 	router.push('/login');
 }
 
-const signout = () => {
+function signout() {
 	logout()
 	router.push('/login');
 }

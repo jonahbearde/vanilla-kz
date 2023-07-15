@@ -1,16 +1,16 @@
 <template>
 	<div class="w-[800px] sm:w-full sm:overflow-hidden">
-		<div class="grid grid-cols-9 text-xl font-semibold cursor-pointer border-b border-slate-600 dark:border-slate-400">
-			<p class="col-span-3" @click="sortBy('map_name')">Map</p>
+		<div class="grid grid-cols-[3fr_1fr_1.5fr_1fr_1fr_3fr] text-xl font-semibold cursor-pointer border-b border-slate-600 dark:border-slate-400">
+			<p @click="sortBy('map_name')">Map</p>
 			<p @click="sortBy(props.has_teleports ? 'tpTier' : 'proTier')">Tier</p>
 			<p @click="sortBy('time')">Time</p>
 			<p @click="sortBy('points')">Points</p>
 			<p @click="sortBy('teleports')">TPs</p>
-			<p class="col-span-2" @click="sortBy('updated_on')">Date</p>
+			<p @click="sortBy('updated_on')">Date</p>
 		</div>
 		<div v-for="run in filteredRuns" :key="run.map_id"
-			class="grid grid-cols-9 py-1 font-normal border-b border-slate-400 dark:border-slate-600">
-			<div class="col-span-3 group flex relative items-center gap-2">
+			class="grid grid-cols-[3fr_1fr_1.5fr_1fr_1fr_3fr] py-1 font-normal border-b border-slate-400 dark:border-slate-600">
+			<div class="group flex relative items-center gap-2">
 				<RouterLink target="_blank" :to="{ name: 'map', params: { mapname: run.map_name } }" class="cursor-pointer ">{{
 					run.map_name }}</RouterLink>
 				<i v-if="run.points === 1000" class="text-yellow-400 fa-solid fa-medal"></i>
@@ -27,7 +27,7 @@
 				:style="{ color: run.points === 1000 ? '#facc15' : (run.points > 900 ? '#e84393' : (run.points > 800 ? '#e17055' : '')) }">
 				{{ run.points }}</p>
 			<p class="">{{ run.teleports }}</p>
-			<p class="col-span-2 italic">
+			<p class="italic">
 				{{ localDate(run.updated_on) }}
 			</p>
 		</div>
