@@ -76,7 +76,7 @@
 				</p>
 				<p @click="toggleStage(bonus.bonus_number); selectedBonus = bonus" v-for="bonus in bonuses" :key="bonus.id"
 					:class="selectedStage === bonus.bonus_number ? 'text-green-600' : ''"
-					class="text-base w-[25px] text-center border border-slate-400 dark:border-slate-600 rounded-md bg-gray-700 cursor-pointer italic">
+					class="text-base w-[25px] text-center border border-slate-400 dark:border-slate-600 rounded-md bg-gray-200 dark:bg-gray-700 cursor-pointer italic">
 					{{ bonus.bonus_number }}
 				</p>
 			</div>

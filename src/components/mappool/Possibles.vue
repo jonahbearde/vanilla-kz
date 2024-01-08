@@ -84,21 +84,25 @@
 				</div>
 
 				<!-- pagination -->
-				<div class="flex gap-4 mx-auto mt-4">
-					<div @click="goPrevious()" class="flex items-center dark:bg-gray-600 px-2 rounded-sm cursor-pointer">
-						<i class="fa-solid fa-angle-left"></i>
-					</div>
+				<div class="flex sticky top-[38px] bg-stats-primary dark:bg-gray-900 z-10 justify-center border-b border-black dark:border-slate-600 py-3">
+					<div class="flex gap-4">
+						<div @click="goPrevious()"
+							class="flex items-center bg-gray-200 dark:bg-gray-600 px-2 rounded-sm cursor-pointer">
+							<i class="fa-solid fa-angle-left"></i>
+						</div>
 
-					<div class="flex gap-1 font-semibold text-xl">
-						<p>{{ offset + 1 }}</p>
-						<p>/</p>
-						<p>{{ total }}</p>
-					</div>
+						<div class="flex gap-1 font-semibold text-xl">
+							<p>{{ offset + 1 }}</p>
+							<p>/</p>
+							<p>{{ total }}</p>
+						</div>
 
-					<div @click="goNext()" class="flex items-center dark:bg-gray-600 px-2 rounded-sm cursor-pointer">
-						<i class="fa-solid fa-angle-right"></i>
+						<div @click="goNext()" class="flex items-center bg-gray-200 dark:bg-gray-600 px-2 rounded-sm cursor-pointer">
+							<i class="fa-solid fa-angle-right"></i>
+						</div>
 					</div>
 				</div>
+
 
 				<!-- map list -->
 				<div class="flex flex-wrap justify-center gap-6 my-6 mx-8">

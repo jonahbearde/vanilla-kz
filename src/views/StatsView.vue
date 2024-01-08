@@ -137,7 +137,7 @@ async function getStats() {
 		const playerData = await axios.get(`${globalApiBaseUrl}/players/steamid/${sid}`);
 		const player = playerData.data[0];
 
-		if (player.total_records === 0 && (player.name === 'Unknown' || player.name === 'Bad Steamid64')) {
+		if (player.is_banned || player.name === 'Bad Steamid64') {
 
 			unknownUser.value = true
 
@@ -159,7 +159,7 @@ async function getStats() {
 		info.value = {
 			pointsTotal: total,
 			pointsAvg: recordCount === 0 ? 0 : Math.round(total / recordCount),
-			name: player.name
+			name: steamUser.value.personaname
 		}
 
 		for (let i = levels.length - 1; i >= 0; i--) {
@@ -281,7 +281,7 @@ function loadStats() {
 		userStore.steamid = sid.getSteamID64()
 
 		idInput.value = ''
-		
+
 		router.replace({
 			name: 'stats',
 			params: {
