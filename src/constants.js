@@ -53,8 +53,7 @@ const tierNotes = [
 	'Unfeasible. Technically possible but no matter how much the map is grinded, it will likely never be completed unless a new route or way is found (e.g kz_neon_portal PRO).',
 ]
 
-const vnlApiBaseUrl = 'https://vnl-stats-backend.onrender.com/api/v1'
-// const vnlApiBaseUrl = 'http://localhost:1337/api/v1'
+const vnlApiBaseUrl = 'https://vnl.kz/api'
 
 const globalApiBaseUrl = 'https://kztimerglobal.com/api/v2.0'
 
