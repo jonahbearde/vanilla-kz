@@ -4,7 +4,7 @@
 			{{ wr.map_name }}
 		</p>
 		<div class="relative">
-			<RouterLink :to="{ name: 'map', params: { mapname: wr.map_name } }" target="_blank">
+			<RouterLink :to="{ name: 'map', params: { mapname: wr.map_name } }">
 				<img :src="imageApiPrefix + wr.map_name + '.jpg'" loading="lazy"
 					onerror="this.onerror = null; this.src = '/loading.jpg'"
 					class="h-[150px] w-auto rounded-sm cursor-pointer" />
@@ -17,7 +17,7 @@
 
 		<div class="flex flex-col items-center w-full">
 			<div class="flex justify-center gap-2 items-baseline">
-				<RouterLink :to="{ name: 'stats', params: { steamid: wr.steamid64 } }" target="_blank"
+				<RouterLink :to="{ name: 'stats', params: { steamid: wr.steamid64 } }"
 					class="font-medium text-cyan-400 cursor-pointer text-lg max-w-[150px] truncate">{{ wr.player_name }}
 				</RouterLink>
 				<p :class="wr.teleports > 0 ? 'text-yellow-600' : 'text-blue-600'" class="text-base">{{ formatTime(wr.time)

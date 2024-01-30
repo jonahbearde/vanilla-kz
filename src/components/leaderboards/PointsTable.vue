@@ -10,7 +10,7 @@
 
 		<div v-for="(item, index) in props.rankings" :key="item.steamid64" class="grid grid-cols-7 py-1 border-b border-slate-600">
 			<p>{{ index + 1 }}</p>
-			<RouterLink :to="{ name: 'stats', params: { steamid: item.steamid64 } }" target="_blank" class="col-span-3 text-[#00cec9] font-medium truncate">
+			<RouterLink :to="{ name: 'stats', params: { steamid: item.steamid64 } }" class="col-span-3 text-[#00cec9] font-medium truncate">
 				{{ item.player_name }}
 			</RouterLink>
 			<p>{{ item.points }}</p>

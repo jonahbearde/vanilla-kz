@@ -23,7 +23,7 @@
 				</div>
 			</div>
 
-			<RouterLink :to="{ name: 'stats', params: { steamid: run.steamid64 } }" target="_blank" class="col-span-3 font-normal cursor-pointer text-green-600 truncate">
+			<RouterLink :to="{ name: 'stats', params: { steamid: run.steamid64 } }" class="col-span-3 font-normal cursor-pointer text-green-600 truncate">
 				{{ run.player_name }}
 			</RouterLink>
 

@@ -107,7 +107,7 @@
 				<!-- map list -->
 				<div class="flex flex-wrap justify-center gap-6 my-6 mx-8">
 					<!-- TODO: highlight finished maps? -->
-					<RouterLink :to="{ name: 'map', params: { mapname: map.name } }" target="_blank" v-for="map in maps"
+					<RouterLink :to="{ name: 'map', params: { mapname: map.name } }" v-for="map in maps"
 						:key="map.id">
 						<MapCard :map="map" />
 					</RouterLink>

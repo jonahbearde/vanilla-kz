@@ -11,7 +11,7 @@
 		<div v-for="run in filteredRuns" :key="run.map_id"
 			class="grid grid-cols-[3fr_1fr_1.5fr_1fr_1fr_3fr] py-1 font-normal border-b border-slate-400 dark:border-slate-600">
 			<div class="group flex relative items-center gap-2">
-				<RouterLink target="_blank" :to="{ name: 'map', params: { mapname: run.map_name } }" class="cursor-pointer ">{{
+				<RouterLink :to="{ name: 'map', params: { mapname: run.map_name } }" class="cursor-pointer ">{{
 					run.map_name }}</RouterLink>
 				<i v-if="run.points === 1000" class="text-yellow-400 fa-solid fa-medal"></i>
 				<img

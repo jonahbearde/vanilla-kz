@@ -40,7 +40,7 @@
 
 						<p>{{ map.map_name }}</p>
 
-						<a :href="`https://kzgo.eu/maps/${map.map_name}`" target="_blank">
+						<a :href="`https://kzgo.eu/maps/${map.map_name}`">
 							<img
 								:src="'https://raw.githubusercontent.com/KZGlobalTeam/map-images/public/mediums/' + map.map_name + '.jpg'"
 								onerror="this.onerror = null; this.src = '/loading.jpg'" loading="lazy"
