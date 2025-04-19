@@ -48,14 +48,14 @@
 
 <script setup>
 import { ref } from 'vue';
-import axios from 'axios';
 import Editor from '@tinymce/tinymce-vue';
 import { customAlphabet } from 'nanoid';
 import { useStorage } from '@vueuse/core';
+import axiosClient from '@/axios';
 
 const nanoid = customAlphabet('1234567890', 6);
 const user = useStorage('user', { token: '', id: -1, name: '', role: '' });
-axios.defaults.headers.common['Authorization'] = `Bearer ${user.value.token}`;
+axiosClient.defaults.headers.common['Authorization'] = `Bearer ${user.value.token}`;
 
 const resources = ref([]);
 const allResources = ref([]);
@@ -109,7 +109,7 @@ const edit = (resource) => {
 
 const getResources = async (cate) => {
 	try {
-		const resourcesData = await axios.get(`https://vnl-stats-backend.onrender.com/api/v1/resources`);
+		const resourcesData = await axiosClient.get(`/resources`);
 		allResources.value = resourcesData.data;
 		resources.value = allResources.value.filter(resource => resource.category === cate);
 	} catch (error) {
@@ -129,7 +129,7 @@ const submitChange = async () => {
 		console.log('desc', descToSubmit.value);
 
 		let resourceId = selectedResourceId.value === -1 ? parseInt(nanoid()) : selectedResourceId.value;
-		const upsertResult = await axios.put(`https://vnl-stats-backend.onrender.com/api/v1/resources/${resourceId}`, {
+		const upsertResult = await axiosClient.put(`/resources/${resourceId}`, {
 			id: resourceId,
 			name: nameToSubmit.value,
 			link: linkToSubmit.value,
@@ -154,7 +154,7 @@ const deleteResource = async () => {
 	// delete Resource	
 	if (confirm('do you want to delete this resource?')) {
 		try {
-			await axios.delete(`https://vnl-stats-backend.onrender.com/api/v1/resources/${id}`);
+			await axiosClient.delete(`/resources/${id}`);
 			await getResources(category.value);
 
 			editing.value = false;

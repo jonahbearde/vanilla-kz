@@ -59,14 +59,14 @@
 
 <script setup>
 import { ref, watchEffect } from 'vue';
-import axios from 'axios';
 import Editor from '@tinymce/tinymce-vue';
 import { customAlphabet } from 'nanoid';
 import { useStorage } from '@vueuse/core';
+import axiosClient from '@/axios';
 
 const nanoid = customAlphabet('1234567890', 6);
 const user = useStorage('user', { token: '', id: -1, name: '', role: '' });
-axios.defaults.headers.common['Authorization'] = `Bearer ${user.value.token}`;
+axiosClient.defaults.headers.common['Authorization'] = `Bearer ${user.value.token}`;
 
 const date = new Date();
 const years = [2018, 2019, 2020, 2021, 2022, 2023];
@@ -118,7 +118,7 @@ const edit = (post) => {
 
 const getPosts = async () => {
 	try {
-		const postsData = await axios.get(`https://vnl-stats-backend.onrender.com/api/v1/articles`);
+		const postsData = await axiosClient.get(`/articles`);
 		postsData.data.sort((a, b) => {
 			if (a.updated_on > b.updated_on) {
 				return -1;
@@ -157,7 +157,7 @@ const submitChange = async () => {
 
 		if (selectedPostId.value === -1) {
 			// new post
-			const createResult = await axios.post(`https://vnl-stats-backend.onrender.com/api/v1/articles`, {
+			const createResult = await axiosClient.post(`/articles`, {
 				id: parseInt(nanoid()),
 				published_by: user.value.name,
 				updated_on: new Date().toISOString(),
@@ -169,7 +169,7 @@ const submitChange = async () => {
 			console.log('create result', createResult.data);
 		} else {
 			// edit an existing post
-			const updateResult = await axios.put(`https://vnl-stats-backend.onrender.com/api/v1/articles/${selectedPostId.value}`, {
+			const updateResult = await axiosClient.put(`/articles/${selectedPostId.value}`, {
 				published_by: user.value.name,
 				// updated_on: new Date().toISOString(),
 				header: headerToSubmit.value,
@@ -194,7 +194,7 @@ const deletePost = async () => {
 	// delete Post	
 	if (confirm('do you want to delete this post?')) {
 		try {
-			await axios.delete(`https://vnl-stats-backend.onrender.com/api/v1/articles/${id}`);
+			await axiosClient.delete(`/articles/${id}`);
 			await getPosts();
 
 			editing.value = false;

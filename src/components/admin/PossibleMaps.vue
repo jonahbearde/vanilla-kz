@@ -77,9 +77,10 @@
 
 <script setup>
 import { ref } from 'vue';
-import axios from 'axios';
 import Editor from '@tinymce/tinymce-vue';
 import { useStorage } from '@vueuse/core';
+import axiosClient from '@/axios';
+import axios from 'axios';
 
 const user = useStorage('user', { token: '', id: -1, name: '', role: '' });
 axios.defaults.headers.common['Authorization'] = `Bearer ${user.value.token}`;
@@ -133,7 +134,7 @@ const edit = (map) => {
 
 const getPossibleMaps = async () => {
 	try {
-		const mapsData = await axios.get(`https://vnl-stats-backend.onrender.com/api/v1/maps`);
+		const mapsData = await axiosClient.get(`/maps`);
 		mapsData.data.sort((a, b) => {
 			if (a.releaseDate > b.releaseDate) {
 				return -1;
@@ -196,7 +197,7 @@ const submitChange = async () => {
 			releaseDate: map.date
 		};
 
-		const upsertResult = await axios.put(`https://vnl-stats-backend.onrender.com/api/v1/maps/${map.id}`, mapObj);
+		const upsertResult = await axiosClient.put(`/maps/${map.id}`, mapObj);
 
 		console.log('upserted map', upsertResult.data);
 
@@ -215,7 +216,7 @@ const deleteMap = async () => {
 	// delete map	
 	if (confirm('do you want to delete this map?')) {
 		try {
-			await axios.delete(`https://vnl-stats-backend.onrender.com/api/v1/maps/${id}`);
+			await axiosClient.delete(`/maps/${id}`);
 			await getPossibleMaps();
 
 			editing.value = false;
