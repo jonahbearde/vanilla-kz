@@ -70,7 +70,7 @@ const { user } = storeToRefs(userStore)
 
 const loading = ref(true)
 
-const newsList = ref(null)
+const newsList = ref([])
 
 const selectedTag = ref(null)
 
