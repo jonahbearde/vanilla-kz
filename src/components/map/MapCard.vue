@@ -23,6 +23,11 @@
 
 			</div>
 
+      <div class="flex items-center gap-1 px-1 my-1 border border-black dark:border-slate-600 bg-yellow-100 dark:bg-slate-800 dark:hover:bg-slate-600 hover:bg-yellow-200 rounded-md cursor-pointer" @click="goToWorkshop">
+        <Steam />
+        <span>Steam</span>
+      </div>
+
 			<div class="flex gap-6 mt-1">
 				<div class="flex gap-2">
 					<p
@@ -90,6 +95,7 @@ import { ref } from 'vue'
 import { toRefs } from '@vueuse/core'
 import { tierPhrases, tierColors } from '../../constants';
 import formatTime from '../../time';
+import Steam from '../UI/Steam.vue';
 
 const props = defineProps({
 	map: {
@@ -122,7 +128,10 @@ function toggleStage(stage) {
 	emits('toggleStage', stage)
 }
 
-
+function goToWorkshop() {
+  const url = `https://steamcommunity.com/sharedfiles/filedetails/?id=${map.value.workshopId}`
+  window.open(url, '_blank')
+}
 </script>
 
 <style scoped>
