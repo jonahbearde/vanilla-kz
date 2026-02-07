@@ -69,7 +69,7 @@ const user = useStorage('user', { token: '', id: -1, name: '', role: '' });
 axiosClient.defaults.headers.common['Authorization'] = `Bearer ${user.value.token}`;
 
 const date = new Date();
-const years = [2018, 2019, 2020, 2021, 2022, 2023];
+const years = [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027];
 
 const selectedYear = ref(date.getFullYear());
 const selectedMonth = ref(date.getMonth() + 1);
