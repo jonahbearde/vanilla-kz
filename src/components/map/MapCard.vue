@@ -85,7 +85,7 @@
 					{{ bonus.bonus_number }}
 				</p>
 			</div>
-			<p v-if="selectedBonus" class="max-w-[400px]">{{ selectedBonus.notes }}</p>
+			<p v-if="selectedBonus" v-html="selectedBonus.notes" class="max-w-[400px]"></p>
 		</div>
 	</div>
 </template>
