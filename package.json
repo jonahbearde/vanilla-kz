@@ -2,7 +2,7 @@
   "name": "vanilla-kz",
   "version": "0.0.0",
   "private": true,
-  "homepage": "https://vnl.kz",
+  "homepage": "https://vnlkz.com",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

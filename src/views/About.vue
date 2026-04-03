@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div class="w-[300px] sm:w-[700px] flex flex-col gap-4 mx-auto mt-20 border-2 border-slate-300 rounded-lg shadow-lg p-4 sm:p-8">
-			<p class="text-xl">Hey, this is Reeed, the developer of vnl.kz. I hope you're enjoying exploring the website so far!</p>
+			<p class="text-xl">Hey, this is Reeed, the developer of vnlkz.com. I hope you're enjoying exploring the website so far!</p>
 			<p class="text-xl">If you have any suggestions or encounter any issues, please feel free to contact me, you can:</p>
 			<ul class="text-xl list-disc list-inside">
 				<li>message me through discord <span class="social dark:bg-gray-700">Reeed#1536</span></li>
