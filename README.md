@@ -1,1 +1,1 @@
-(offical) site for vanilla kz
+(official) site for vanilla kz
